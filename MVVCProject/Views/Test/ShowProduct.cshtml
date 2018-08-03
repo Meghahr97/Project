@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "ShowProduct";
+}
+
+<h2>ShowProduct</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div>
+        <label>Select Product</label>
+        @Html.DropDownList("ddlprod", Session["pdata"] as SelectList)
+    </div>
+    <div>
+        <input type="submit" value="ShowModel" name="Command" />
+    </div>
+
+    if (Session["mdata"] != null)
+    {
+        <div>
+            <label>Select model:</label>
+            @Html.DropDownList("ddlmodel", Session["mdata"] as SelectList)
+        </div>
+    }
+
+    <div>
+        <label>Select Quantity</label>
+        @Html.TextBox("txtquantity")
+    </div>
+
+    <div>
+        <label>Shipping Address</label>
+        @Html.TextArea("txtaddress")
+    </div>
+
+    <div>
+        <input type="submit" value="Confirm" name="Command" />
+        <input type="submit" value="Cancel" />
+    </div>
+
+}
+@Html.ActionLink("Display the last order", "Display")

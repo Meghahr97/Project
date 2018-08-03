@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "TrackOrder";
+}
+
+<h2>TrackOrder</h2>
+@using (Html.BeginForm())
+{
+    <div>
+        <label>Enter Order Id</label>
+        @Html.TextBox("txtorderid")
+    </div>
+
+        <div>
+            <input type="submit" value="SelectById" name="Command" />
+        </div>
+
+    if (ViewData["userdata"] != null)
+    {
+        MVVCProject.Models.Order ord = (MVVCProject.Models.Order)ViewData["userdata"];
+
+        <h3>Order Details</h3>
+        <div>
+            <label>Id:</label>
+            <input type="text" name="txtid" id="txtid" value="@ord.OrderId" readonly />
+        </div>
+        <div>
+            <label>Order Date:</label>
+            <input type="text" name="txtorderdate" id="txtid" value="@ord.orderdate" readonly />
+        </div>
+        <div>
+            <label>Amount paid:</label>
+            @Html.TextBox("txtamount", Session["amount"])
+        </div>
+        <h3>Order Status</h3>
+        <div>
+            <table border="1">
+                <tr>
+                    <th>Product Detail</th>
+                    <th>Status</th>
+                    <th>Delivery</th>
+                    <th>SubTotal</th>
+                </tr>
+                <tr>
+                    <td>@Session["modelname"]</td>
+                    <td>@Session["stat"]</td>
+                    <td>@Session["delivery"]</td>
+                    <td>@Session["amount"]</td>
+                </tr>
+            </table>
+        </div>
+    }
+}
+

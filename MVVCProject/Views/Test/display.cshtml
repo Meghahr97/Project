@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "display";
+}
+
+<h2>display</h2>
+@using (Html.BeginForm())
+{
+    <div>
+        <label>the last update for Order Id</label>
+        @Html.TextBox("txtorder", Session["rkdata"])
+    </div>
+    <div>
+        <input type="submit" value="display" name="Command" />
+    </div>
+  
+    <div>
+        <label>Product name:</label>
+        @Html.TextBox("txtpname", Session["pname"])
+    </div>
+    <div>
+        <label>item price:</label>
+        @Html.TextBox("txtprice", Session["iprice"])
+    </div>
+    <div>
+        <label>quantity:</label>
+        @Html.TextBox("txtqty", Session["iqty"])
+    </div>
+    <div>
+        <label>sub total:</label>
+        @Html.TextBox("txtsubtotal", Session["subtotal"])
+    </div>
+}
